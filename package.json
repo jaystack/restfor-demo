@@ -5,10 +5,12 @@
   "dependencies": {
     "config": "^1.29.2",
     "express": "^4.16.2",
+    "material-ui": "^0.20.0",
     "nodemon": "^1.14.11",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "^1.1.0"
+    "react-scripts": "^1.1.0",
+    "restfor": "^0.9.1"
   },
   "scripts": {
     "start": "react-scripts start",
