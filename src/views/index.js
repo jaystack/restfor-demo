@@ -1,6 +1,6 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
-import Person from 'material-ui/svg-icons/social/person';
+import Person from 'material-ui-icons/Person';
 import MyCustomIsExpired from './MyCustomIsExpired';
 
 export default register => {
@@ -13,7 +13,7 @@ export default register => {
   register.editor.property('task', 'UserId', ({ propertyName, value, onChange }) => (
     <div>
       <Person />{' '}
-      <TextField name={propertyName} type="number" value={value} onChange={(_, value) => onChange(Number(value))} />
+      <TextField name={propertyName} type="number" value={value} onChange={evt => onChange(Number(evt.target.value))} />
     </div>
   ));
 };
