@@ -8,7 +8,7 @@ export default register => {
 
   register.grid.property('task', 'isExpired', MyCustomIsExpired);
 
-  register.editor.property('task', 'isExpired', MyCustomIsExpired);
+  register.details.property('task', 'isExpired', MyCustomIsExpired);
 
   register.editor.property('task', 'UserId', ({ propertyName, value, onChange }) => (
     <div>
