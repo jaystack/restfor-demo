@@ -27,7 +27,6 @@ export default register => {
   );
 
   register.grid.action('task', 'Action without params', ({ invoke, selection }) => {
-    console.log(invoke)
     setTimeout(() => alert(`Selection: ${selection.join(', ')}`), 500);
   });
 
