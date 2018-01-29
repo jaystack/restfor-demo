@@ -8,8 +8,8 @@ export default register => {
   register.grid.action(
     'user',
     'Add task',
-    async ({ params, invoke, state, selection }) => {
-      await invoke('POST', 'task', '/actions/addTaskForUsers', { body: selection });
+    async ({ params, invoke, selection }) => {
+      await invoke('POST', 'user', '/actions/addTaskForUsers', { body: { ...params, users: selection } });
     },
     {
       condition: ({ selection }) => selection.length > 0,
@@ -18,7 +18,10 @@ export default register => {
         title: types.string(),
         deadline: types.date(),
         taskType: types.enum('primary', 'secondary'),
-        noSense: ({ value, onChange }) => <TextField value={value} onChange={evt => onChange(evt.target.value)} />
+        noSense: props => {
+          const { value, onChange, selection } = props;
+          return <TextField value={value || selection.join(', ')} onChange={evt => onChange(evt.target.value)} />;
+        }
       }
     }
   );
@@ -26,6 +29,21 @@ export default register => {
   register.grid.action('task', 'Action without params', ({ selection }) => {
     setTimeout(() => alert(`Selection: ${selection.join(', ')}`), 500);
   });
+
+  register.details.action(
+    'user',
+    'Add task',
+    async ({ params, invoke, record }) => {
+      await invoke('POST', 'task', '/', { body: [{ ...params, UserId: record.id }] });
+    },
+    {
+      params: {
+        title: types.string(),
+        deadline: types.date(),
+        taskType: types.enum('primary', 'secondary')
+      }
+    }
+  );
 
   register.grid.property('task', 'isExpired', MyCustomIsExpired);
 
