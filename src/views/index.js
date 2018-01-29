@@ -7,7 +7,7 @@ import types from 'restfor/types';
 export default register => {
   register.grid.action(
     'user',
-    'Add task',
+    'Add task for users',
     async ({ params, invoke, selection }) => {
       await invoke('POST', 'user', '/actions/addTaskForUsers', { body: { ...params, users: selection } });
     },
@@ -32,7 +32,7 @@ export default register => {
 
   register.details.action(
     'user',
-    'Add task',
+    'Add task for user',
     async ({ params, invoke, record }) => {
       await invoke('POST', 'task', '/', { body: [{ ...params, UserId: record.id }] });
     },
