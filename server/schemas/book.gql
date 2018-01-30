@@ -1,0 +1,74 @@
+type User {
+  id: Int
+  name: String
+}
+
+type Task {
+  id: Int
+  title: String
+  checked: Boolean
+  userId: Int
+  user: User
+}
+
+type TaskQueryInterface {
+  items(query: TaskQuery): [Task]
+  item(id: Int!): Task
+}
+
+type UserQueryInterface {
+  items(query: UserQuery): [User]
+  item(id: Int!): User
+}
+
+type TaskMutationInterface {
+  create(task: NewTask): Task
+}
+
+type UserMutationInterface {
+  create(user: NewUser): User
+}
+
+input TaskQuery {
+  id: Int
+  title: String
+  checked: Boolean
+  userId: Int
+}
+
+input UserQuery {
+  id: Int
+  name: String
+}
+
+input NewTask {
+  title: String
+  userId: Int
+}
+
+input NewUser {
+  name: String
+}
+
+type ResourcesQueryInterface {
+  task: TaskQueryInterface
+  user: UserQueryInterface
+}
+
+type ResourcesMutationInterface {
+  task: TaskMutationInterface
+  user: UserMutationInterface
+}
+
+type Query {
+  resources: ResourcesQueryInterface
+}
+
+type Mutation {
+  resources: ResourcesMutationInterface
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

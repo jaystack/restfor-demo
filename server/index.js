@@ -2,6 +2,7 @@ const { join } = require('path');
 const config = require('config');
 const express = require('express');
 const createRouter = require('restfor/createRouter');
+const createGraphqlRouter = require('restfor/lib/graphql');
 
 createRouter({
   db: config.db,
@@ -10,6 +11,15 @@ createRouter({
 }).then(router => {
   const app = express();
   app.use('/api', router);
+
+  app.use(
+    '/',
+    createGraphqlRouter({
+      db: config.db,
+      schemasPath: join(__dirname, 'schemas'),
+      resolversPath: join(__dirname, 'resolvers')
+    })
+  );
 
   app.use('/', express.static('build'));
 
