@@ -4,7 +4,7 @@
     "database": "restfor",
     "host": "localhost",
     "username": "root",
-    "password": "password"
+    "password": "root"
   }
 }
 
