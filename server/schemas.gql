@@ -1,6 +1,7 @@
 type User {
   id: Int @primaryKey @auto @readOnly
   username: String
+  powerlvl: Int @required @default(value: 8999)
 }
 
 type Task {
