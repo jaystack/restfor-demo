@@ -12,7 +12,7 @@ const init = async () => {
   });
 
   const graphqlRouter = await createGraphqlRouter({
-    db: config.db,
+    db: { ...config.db, alterOnSync: true },
     collections: ['User', 'Task'],
     schemas: join(__dirname, 'schemas.gql'),
     modelsPath: join(__dirname, 'models'),
