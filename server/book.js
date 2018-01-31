@@ -24,16 +24,10 @@ const tasks = [
 
 module.exports = {
   Query: {
-    resources: () => ({})
-  },
-  Mutation: {
-    resources: () => ({})
-  },
-  ResourcesQueryInterface: {
     task: () => ({}),
     user: () => ({})
   },
-  ResourcesMutationInterface: {
+  Mutation: {
     task: () => ({}),
     user: () => ({})
   },

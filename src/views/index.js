@@ -26,7 +26,8 @@ export default register => {
     }
   );
 
-  register.grid.action('task', 'Action without params', ({ invoke, selection }) => {
+  register.grid.action('task', 'Action without params', async ({ invoke, selection }) => {
+    console.log(await invoke('GET', 'task', '/sdafsadfdsafsa').catch(e => console.log(e)));
     setTimeout(() => alert(`Selection: ${selection.join(', ')}`), 500);
   });
 

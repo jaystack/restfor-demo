@@ -3,7 +3,12 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     checked: { type: DataTypes.BOOLEAN, defaultValue: false, allowNull: false },
     taskType: DataTypes.ENUM('primary', 'secondary'),
-    deadline: DataTypes.DATE
+    deadline: DataTypes.DATE,
+    foo: {
+      type: DataTypes.STRING,
+      field: sequelize.literal('"almafa"'),
+      readOnly: true
+    }
   });
 
   Task.associate = ({ Task, User }) =>

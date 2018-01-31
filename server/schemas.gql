@@ -1,0 +1,26 @@
+type User {
+  id: Int @primaryKey @auto @readOnly
+  name: String
+}
+
+type Task {
+  id: Int @primaryKey @auto @readOnly
+  title: String @required
+  taskType: TaskType
+  deadline: String
+  checked: Boolean @default(value: false)
+  userId: Int @required
+}
+
+enum TaskType {
+  primary
+  secondary
+}
+
+extend type TaskQuery {
+  count: Int
+}
+
+extend type UserMutation {
+  addTaskForUser(userId: Int, task: TaskDelta): Task
+}
