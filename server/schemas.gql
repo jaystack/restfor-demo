@@ -1,6 +1,6 @@
 type User {
   id: Int @primaryKey @auto @readOnly
-  name: String
+  username: String
 }
 
 type Task {
