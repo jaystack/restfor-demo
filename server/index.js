@@ -7,8 +7,8 @@ const init = async () => {
   const router = await createRouter({
     db: config.db,
     collections: ['User', 'Task'],
-    schemasPath: join(__dirname, 'schemas.gql'),
-    resolversPath: join(__dirname, 'resolvers.js'),
+    schemasPath: join(__dirname, 'schemas'),
+    resolversPath: join(__dirname, 'resolvers'),
     modelsPath: join(__dirname, 'models'),
     routesPath: join(__dirname, 'routes')
   });
