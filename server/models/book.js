@@ -10,7 +10,6 @@ module.exports = (sequelize, DataTypes) => {
       title: { type: DataTypes.STRING, allowNull: false },
       category: { type: DataTypes.ENUM('science', 'poetry'), defaultValue: 'science', allowNull: false },
       sold: { type: DataTypes.BOOLEAN, defaultValue: false, allowNull: false },
-      deadline: { type: DataTypes.DATE, allowNull: false },
       authorId: { type: DataTypes.INTEGER, allowNull: false }
     },
     {
