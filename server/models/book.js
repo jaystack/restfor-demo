@@ -17,7 +17,9 @@ module.exports = (sequelize, DataTypes) => {
       segments: [
         { segmentKey: 'science', label: 'science books', segmentField: 'category', segmentValue: 'science' },
         { segmentKey: 'poetry', label: 'poetry books', segmentField: 'category', segmentValue: 'poetry' }
-      ]
+      ],
+      createdAt: false,
+      updatedAt: false
     }
   );
 
