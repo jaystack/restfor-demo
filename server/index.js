@@ -2,7 +2,6 @@ const { join } = require('path');
 const config = require('config');
 const express = require('express');
 const createRouter = require('restfor/createRouter');
-const createGraphqlRouter = require('restfor/lib/graphql');
 
 const init = async () => {
   const router = await createRouter({
@@ -22,8 +21,7 @@ const init = async () => {
   const app = express();
   app.use('/api', router);
 
-  app.use('/', graphqlRouter);
-
+  app.use('/gql', graphqlRouter);
   app.use('/', express.static('build'));
 
   app.listen(config.port, () => {
