@@ -1,13 +1,17 @@
 type User {
-  id: Int
+  id: Int @primaryKey
   name: String
 }
 
+extend type User {
+  foo: String
+}
+
 type Task {
-  id: Int
+  id: Int @primaryKey
   title: String
-  checked: Boolean
-  userId: Int
+  checked: Boolean @default(value: false)
+  userId: Int @required @reference(entity: User, prop: "id")
   user: User
 }
 
@@ -50,22 +54,14 @@ input NewUser {
   name: String
 }
 
-type ResourcesQueryInterface {
+type Query {
   task: TaskQueryInterface
   user: UserQueryInterface
 }
 
-type ResourcesMutationInterface {
+type Mutation {
   task: TaskMutationInterface
   user: UserMutationInterface
-}
-
-type Query {
-  resources: ResourcesQueryInterface
-}
-
-type Mutation {
-  resources: ResourcesMutationInterface
 }
 
 schema {

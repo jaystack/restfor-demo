@@ -1,0 +1,28 @@
+type User {
+  id: Int @primaryKey @auto @readOnly
+  username: String
+  powerlvl: Int @required @default(value: 8999)
+}
+
+type Task {
+  id: Int @primaryKey @auto @readOnly
+  title: String @required
+  taskType: TaskType
+  deadline: String
+  checked: Boolean @default(value: false)
+  UserId: Int @required
+}
+
+enum TaskType {
+  primary
+  secondary
+}
+
+extend type TaskQuery {
+  count: Int
+}
+
+extend type UserMutation {
+  addTaskForUser(records: [Int], task: TaskDelta): Task @action(name: "Add task for user", view: Details)
+  addTaskForUsers(records: [Int], task: TaskDelta): Task @action(name: "Add task for users", view: Grid)
+}
