@@ -10,7 +10,7 @@ type Task {
   taskType: TaskType
   deadline: String
   checked: Boolean @default(value: false)
-  userId: Int @required
+  UserId: Int @required
 }
 
 enum TaskType {
@@ -23,5 +23,6 @@ extend type TaskQuery {
 }
 
 extend type UserMutation {
-  addTaskForUser(userId: Int, task: TaskDelta): Task
+  addTaskForUser(records: [Int], task: TaskDelta): Task @action(name: "Add task for user", view: Details)
+  addTaskForUsers(records: [Int], task: TaskDelta): Task @action(name: "Add task for users", view: Grid)
 }

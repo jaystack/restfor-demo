@@ -2,6 +2,7 @@ const { join } = require('path');
 const config = require('config');
 const express = require('express');
 const createRouter = require('restfor/createRouter');
+const createGraphqlRouter = require('restfor/createGraphqlRouter')
 
 const init = async () => {
   const router = await createRouter({
