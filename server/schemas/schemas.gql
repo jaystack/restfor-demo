@@ -1,28 +1,27 @@
-type User {
+type Author {
   id: Int @primaryKey @auto @readOnly
-  username: String
-  powerlvl: Int @required @default(value: 8999)
+  name: String @required
 }
 
-type Task {
+type Book {
   id: Int @primaryKey @auto @readOnly
   title: String @required
-  taskType: TaskType
-  deadline: String
-  checked: Boolean @default(value: false)
-  UserId: Int @required
+  category: Category @default(value: science)
+  release: String @date @required
+  sold: Boolean @default(value: false)
+  authorId: Int @required
 }
 
-enum TaskType {
-  primary
-  secondary
+enum Category {
+  science
+  poetry
 }
 
-extend type TaskQuery {
+extend type BookQuery {
   count: Int
 }
 
 # extend type UserMutation {
-  # addTaskForUser(records: [UserInput], task: TaskDelta): Task @action(name: "Add task for user", view: Details)
-  # addTaskForUsers(records: [UserInput], task: TaskDelta): Task @action(name: "Add task for users", view: Grid)
+# addTaskForUser(records: [UserInput], task: TaskDelta): Task @action(name: "Add task for user", view: Details)
+# addTaskForUsers(records: [UserInput], task: TaskDelta): Task @action(name: "Add task for users", view: Grid)
 # }

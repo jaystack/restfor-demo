@@ -1,5 +1,5 @@
 module.exports = {
-  TaskQuery: {
+  BookQuery: {
     count: () => 42
   }
 };
