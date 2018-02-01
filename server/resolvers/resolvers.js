@@ -1,5 +1,5 @@
-module.exports = ({models}) => ({
+module.exports = {
   TaskQuery: {
     count: () => 42
   }
-});
+};
