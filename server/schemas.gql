@@ -22,7 +22,7 @@ extend type TaskQuery {
   count: Int
 }
 
-extend type UserMutation {
-  addTaskForUser(records: [Int], task: TaskDelta): Task @action(name: "Add task for user", view: Details)
-  addTaskForUsers(records: [Int], task: TaskDelta): Task @action(name: "Add task for users", view: Grid)
-}
+# extend type UserMutation {
+  # addTaskForUser(records: [UserInput], task: TaskDelta): Task @action(name: "Add task for user", view: Details)
+  # addTaskForUsers(records: [UserInput], task: TaskDelta): Task @action(name: "Add task for users", view: Grid)
+# }
