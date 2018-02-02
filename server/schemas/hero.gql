@@ -1,0 +1,5 @@
+type Hero {
+  id: Int @primaryKey
+  name: String
+  power: Int @readOnly
+}
