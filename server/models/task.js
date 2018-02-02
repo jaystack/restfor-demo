@@ -5,6 +5,14 @@ module.exports = (sequelize, DataTypes) => {
     taskType: DataTypes.ENUM('primary', 'secondary'),
     deadline: DataTypes.DATE
   }, {
+    customOptions: {
+      hidden: false,
+      grid: {
+        visibleFields: [
+          'id','title', 'checked', 'taskType', 'deadline', 'UserId','isExpired'
+        ]
+      }
+    },
     segments: [
       { segmentKey:'primary', label: 'primary tasks', segmentField: 'taskType',  segmentValue: 'primary'},
       { segmentKey:'secondary', label: 'secondary tasks',  segmentField: 'taskType',  segmentValue: 'secondary' },
