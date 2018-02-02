@@ -6,7 +6,7 @@ const createRouter = require('restfor/createRouter');
 const init = async () => {
   const router = await createRouter({
     db: config.db,
-    collections: ['User', 'Task', 'Author', 'Book'],
+    collections: ['User', 'Task', 'Author', 'Book', 'Hero'],
     schemasPath: join(__dirname, 'schemas'),
     resolversPath: join(__dirname, 'resolvers'),
     modelsPath: join(__dirname, 'models'),

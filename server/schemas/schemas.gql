@@ -21,7 +21,8 @@ extend type BookQuery {
   count: Int
 }
 
-# extend type UserMutation {
-# addTaskForUser(records: [UserInput], task: TaskDelta): Task @action(name: "Add task for user", view: Details)
-# addTaskForUsers(records: [UserInput], task: TaskDelta): Task @action(name: "Add task for users", view: Grid)
-# }
+type Hero {
+  id: Int @primaryKey,
+  name: String
+  power: Int @readOnly
+}
